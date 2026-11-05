@@ -1,0 +1,198 @@
+
+/* MOH 216 — Pink Handbook Login */
+
+.moh-login-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      rgba(255, 192, 203, 0.12),
+      rgba(173, 20, 87, 0.18)
+    ),
+    url('/images/mother-child-cover.png') center center / cover no-repeat !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.moh-login-card {
+  width: 100%;
+  max-width: 420px !important;
+  padding: 40px;
+  border-radius: 22px !important;
+  background: rgba(255, 235, 245, 0.85) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 20px 60px rgba(110, 20, 65, 0.25) !important;
+  color: #581c3d;
+}
+
+.moh-login-card h1 {
+  color: #ad1457 !important;
+}
+
+.moh-login-card h2 {
+  color: #581c3d;
+}
+
+.moh-login-card input {
+  width: 100%;
+  padding: 13px !important;
+  margin: 8px 0 18px;
+  border: 1px solid #e8a2c0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #581c3d;
+  box-sizing: border-box;
+}
+
+.moh-login-card input:focus {
+  outline: 2px solid #d81b60;
+}
+
+.moh-login-card button {
+  width: 100%;
+  padding: 14px !important;
+  background: #ad1457 !important;
+  color: white !important;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.moh-login-card button:hover {
+  background: #880e4f !important;
+}
+
+@media (max-width: 480px) {
+  .moh-login-card {
+    padding: 26px;
+  }
+}
+
+/* MOH 216 — Full Cover Background */
+.moh-login-page {
+  background:
+    linear-gradient(
+      rgba(255, 192, 203, 0.08),
+      rgba(255, 192, 203, 0.08)
+    ),
+    url('/images/mother-child-cover.png') center center / contain no-repeat,
+    #f8bbd0 !important;
+
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Transparent Pink Glass Login Card */
+.moh-login-card {
+  background: rgba(255, 225, 238, 0.55) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.65) !important;
+  box-shadow: 0 18px 50px rgba(100, 20, 60, 0.18) !important;
+}
+
+/* Soft transparent input fields */
+.moh-login-card input {
+  background: rgba(255, 255, 255, 0.72) !important;
+}
+
+
+/* More transparent pink glass login form */
+.moh-login-card {
+  background: rgba(255, 225, 238, 0.40) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+}
+
+/* Keep username and password fields readable */
+.moh-login-card input {
+  background: rgba(255, 255, 255, 0.78) !important;
+}
+
+
+/* Move login form down to reveal the Kenyan Coat of Arms */
+.moh-login-card {
+  transform: translateY(100px);
+}
+
+@media (max-width: 600px) {
+  .moh-login-card {
+    transform: translateY(30px);
+  }
+}
+
+
+/* Full-screen MOH 216 background with complete cover visible */
+.moh-login-page {
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+  background: url('/images/mother-child-cover.png') center center / cover no-repeat !important;
+}
+
+.moh-login-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    url('/images/mother-child-cover.png') center center / auto 100% no-repeat;
+}
+
+/* Keep the login card transparent */
+.moh-login-card {
+  background: rgba(255, 225, 238, 0.35) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+
+.moh-login-page { background: url(/images/mother-child-cover.png) center / cover no-repeat !important; } .moh-login-page::before { display: none !important; } .moh-login-card { transform: none !important; background: rgba(255,225,238,0.35) !important; backdrop-filter: blur(4px) !important; }
+
+/* MOH 216 final login positioning */
+.moh-login-page { justify-content: flex-end !important; padding: 40px 8% 40px 24px !important; }
+.moh-login-card { transform: translateY(55px) !important; margin: 0 !important; }
+.moh-login-card h1 { color: #111111 !important; font-weight: 900 !important; font-size: 38px !important; letter-spacing: 1px !important; }
+@media (max-width: 700px) { .moh-login-page { justify-content: center !important; padding: 20px !important; } .moh-login-card { transform: none !important; margin: 0 auto !important; } }
+
+/* MOH216 FINAL LAYOUT */
+.moh-login-page {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+  background: #f8c6dc url('/images/mother-child-cover.png')
+    center center / contain no-repeat !important;
+}
+
+.moh-login-page::before,
+.moh-login-page::after {
+  display: none !important;
+}
+
+.moh-login-card {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  margin: 0 auto !important;
+  width: min(390px, 92vw) !important;
+  background: rgba(255, 225, 238, 0.25) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+  border: 1px solid rgba(255,255,255,0.65) !important;
+  border-radius: 18px !important;
+}
+
+.moh-login-card h1 {
+  color: #000000 !important;
+  font-weight: 900 !important;
+  font-size: 38px !important;
+  letter-spacing: 1px !important;
+}
