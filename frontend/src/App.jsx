@@ -1,7 +1,12 @@
 import { clearApiCredentials } from "./services/api";
+import { getDashboardSummary } from "./services/api";
 import StaffLogin from "./components/StaffLogin";
 import Mothers from "./pages/Mothers";
-import { useState } from "react";
+import Children from "./pages/Children";
+import Anc from "./pages/Anc";
+import SettingsPage from "./pages/Settings";
+import { HealthRecords, Appointments, Immunizations, Reports } from "./pages/ModulePages";
+import { useEffect, useState } from "react";
 import {
   LayoutDashboard,
   Users,
@@ -19,6 +24,7 @@ import {
 } from "lucide-react";
 
 import "./App.css";
+import "./theme.css";
 
 const menuItems = [
   { label: "Dashboard", icon: LayoutDashboard },
@@ -27,20 +33,36 @@ const menuItems = [
   { label: "Immunizations", icon: Syringe },
   { label: "Appointments", icon: CalendarDays },
   { label: "Health Records", icon: FileHeart },
+  { label: "ANC", icon: HeartPulse },
   { label: "Reports", icon: BarChart3 },
   { label: "Settings", icon: Settings },
 ];
 
-const statistics = [
-  { title: "Registered Mothers", value: "0", icon: Users },
-  { title: "Registered Children", value: "0", icon: Baby },
-  { title: "Appointments", value: "0", icon: CalendarDays },
-  { title: "Immunizations", value: "0", icon: Syringe },
+const statisticDefinitions = [
+  { title: "Registered Mothers", key: "registeredMothers", icon: Users },
+  { title: "Registered Children", key: "registeredChildren", icon: Baby },
+  { title: "Appointments", icon: CalendarDays },
+  { title: "Immunizations", icon: Syringe },
 ];
 
 export default function App() {
   const [activePage, setActivePage] = useState("Dashboard");
   const [staffUser, setStaffUser] = useState(null);
+  const [dashboardSummary, setDashboardSummary] = useState(null);
+  const [dashboardError, setDashboardError] = useState("");
+
+  useEffect(() => {
+    if (!staffUser) {
+      return;
+    }
+
+    getDashboardSummary()
+      .then(setDashboardSummary)
+      .catch((error) => {
+        console.error("Failed to load dashboard summary:", error);
+        setDashboardError("Dashboard data could not be loaded.");
+      });
+  }, [staffUser]);
 
   function handleLogout() {
     clearApiCredentials();
@@ -156,17 +178,21 @@ export default function App() {
               </section>
 
               <section className="stats-grid">
-                {statistics.map(({ title, value, icon: Icon }) => (
+                {statisticDefinitions.map(({ title, key, icon: Icon }) => (
                   <div className="stat-card" key={title}>
                     <div className="stat-icon">
                       <Icon size={25} />
                     </div>
 
                     <p>{title}</p>
-                    <h2>{value}</h2>
+                    <h2>{key && dashboardSummary ? dashboardSummary[key] : (title === "Appointments" ? dashboardSummary?.appointments ?? "Not available" : title === "Immunizations" ? dashboardSummary?.immunizations ?? "Not available" : "Not available")}</h2>
                   </div>
                 ))}
               </section>
+
+              {dashboardError && (
+                <p className="dashboard-error" role="alert">{dashboardError}</p>
+              )}
 
               <section className="dashboard-bottom">
                 <div className="content-card">
@@ -224,6 +250,20 @@ export default function App() {
             </>
           ) : activePage === "Mothers" ? (
             <Mothers />
+          ) : activePage === "Children" ? (
+            <Children />
+          ) : activePage === "Health Records" ? (
+            <HealthRecords />
+          ) : activePage === "ANC" ? (
+            <Anc />
+          ) : activePage === "Appointments" ? (
+            <Appointments />
+          ) : activePage === "Immunizations" ? (
+            <Immunizations />
+          ) : activePage === "Reports" ? (
+            <Reports />
+          ) : activePage === "Settings" ? (
+            <SettingsPage staffUser={staffUser} />
           ) : (
             <section className="content-card module-placeholder">
               <h2>{activePage}</h2>

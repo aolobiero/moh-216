@@ -1,0 +1,21 @@
+body, .main-area { background: var(--page-bg); color: var(--text); }
+.sidebar { background: linear-gradient(180deg, var(--sidebar-start), var(--sidebar-end)); }
+.header, .content-card, .stat-card, .settings-nav, .settings-panel, .child-form, .children-table-card, .anc-card { background: var(--surface); border-color: var(--border); color: var(--text); }
+.header h2, .settings-intro h1, .settings-panel h2, .children-heading h1, .children-table-header h2, .anc-heading h1, .anc-card h2, .content-card h2, .stat-card h2 { color: var(--text); }
+.header-label, .card-heading, .banner-icon, .stat-icon, .quick-icon { color: var(--accent); }
+.welcome-banner { background: linear-gradient(110deg, var(--accent-soft), var(--surface-soft)); }
+.welcome-tag, .primary-button, .settings-save, .child-primary-btn, .anc-primary-btn { background-color: var(--accent); color: var(--surface); }
+.primary-button:hover, .settings-save:hover, .child-primary-btn:hover, .anc-primary-btn:hover { background-color: var(--accent-strong); }
+.welcome-tag { background: transparent; color: var(--accent-strong); }
+.welcome-banner p, .card-description, .stat-card p, .settings-help, .children-heading p, .anc-heading p, .module-placeholder p { color: var(--text-secondary); }
+.stat-icon, .quick-actions button, .settings-account { background: var(--accent-soft); }
+.quick-actions button:hover, .settings-nav button.active, .settings-nav button:hover { background: var(--surface-soft); color: var(--accent-strong); }
+.menu button:hover, .menu button.selected { background: var(--surface); color: var(--accent-strong); }
+.mothers-table-card, .mother-form, .children-table-card, .child-form, .anc-card { background: var(--surface); border-color: var(--border); color: var(--text); }
+.mothers-table-wrapper th, .mothers-table-wrapper td, .children-table-wrapper th, .children-table-wrapper td, .anc-table-wrapper th, .anc-table-wrapper td { border-color: var(--border); color: var(--text-secondary); }
+.mothers-table-wrapper th, .children-table-wrapper th, .anc-table-wrapper th { color: var(--text); }
+.mother-form input, .mother-form select, .child-form input, .child-form select, .child-form textarea, .anc-form input, .anc-form select, .anc-visit-form input, .anc-visit-form textarea, .settings-form-grid input, .settings-form-grid select, .anc-filter select { background: var(--surface); color: var(--text); border-color: var(--border); }
+.mother-form label, .child-form label, .anc-form label, .anc-visit-form label, .settings-form-grid label, .anc-filter label { color: var(--text-secondary); }
+.children-empty, .anc-empty, .settings-loading { color: var(--text-secondary); }
+.children-empty h3, .anc-empty h3 { color: var(--text); }
+.mothers-empty, .children-empty { background: var(--surface); }

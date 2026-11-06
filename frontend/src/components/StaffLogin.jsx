@@ -31,28 +31,13 @@ export default function StaffLogin({ onLogin }) {
   }
 
   return (
-    <div className="moh-login-page" style={{
-      minHeight: "100vh",
-      display: "grid",
-      placeItems: "center",
-      background: "#f1f5f9",
-      padding: "24px"
-    }}>
-      <form className="moh-login-card" onSubmit={handleSubmit} style={{
-        width: "100%",
-        maxWidth: "400px",
-        background: "#ffffff",
-        padding: "36px",
-        borderRadius: "16px",
-        boxShadow: "0 12px 40px rgba(0,0,0,0.08)"
-      }}>
-        <h1 style={{ color: "#0f766e", marginBottom: "8px" }}>
-          MOH 216
-        </h1>
+    <div className="moh-login-page">
+      <form className="moh-login-card" onSubmit={handleSubmit}>
+        <h1>MOH 216</h1>
 
         <h2>Staff Login</h2>
 
-        <p style={{ color: "#64748b", marginBottom: "24px" }}>
+        <p className="login-subtitle">
           Mother & Child Health Handbook
         </p>
 
@@ -64,7 +49,6 @@ export default function StaffLogin({ onLogin }) {
           onChange={(event) => setUsername(event.target.value)}
           autoComplete="username"
           required
-          style={{ width: "100%", padding: "12px", margin: "8px 0 18px" }}
         />
 
         <label htmlFor="staff-password">Password</label>
@@ -75,25 +59,15 @@ export default function StaffLogin({ onLogin }) {
           onChange={(event) => setPassword(event.target.value)}
           autoComplete="current-password"
           required
-          style={{ width: "100%", padding: "12px", margin: "8px 0 18px" }}
         />
 
         {error && (
-          <p role="alert" style={{ color: "#dc2626" }}>{error}</p>
+          <p className="login-error" role="alert">{error}</p>
         )}
 
         <button
           type="submit"
           disabled={loading}
-          style={{
-            width: "100%",
-            padding: "13px",
-            background: "#0f766e",
-            color: "white",
-            border: "none",
-            borderRadius: "8px",
-            cursor: "pointer"
-          }}
         >
           {loading ? "Signing in..." : "Sign In"}
         </button>

@@ -34,8 +34,9 @@ public class MotherController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Mother>> getAllMothers() {
-        return ResponseEntity.ok(motherService.getAllMothers());
+    public ResponseEntity<List<Mother>> getAllMothers(
+            @RequestParam(required = false) String search) {
+        return ResponseEntity.ok(motherService.searchMothers(search));
     }
 
     @GetMapping("/{id}")

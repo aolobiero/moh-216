@@ -36,6 +36,15 @@
   color: #581c3d;
 }
 
+.moh-login-card .login-subtitle {
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+.moh-login-card .login-error {
+  color: #b91c1c;
+}
+
 .moh-login-card input {
   width: 100%;
   padding: 13px !important;
@@ -195,4 +204,15 @@
   font-weight: 900 !important;
   font-size: 38px !important;
   letter-spacing: 1px !important;
+}
+
+/* Preserve the cover art while leaving the seal clear of the form. */
+.moh-login-card {
+  transform: translateY(24px) !important;
+}
+
+@media (max-width: 700px) {
+  .moh-login-card {
+    transform: translateY(12px) !important;
+  }
 }

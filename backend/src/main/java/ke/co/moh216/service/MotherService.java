@@ -47,6 +47,17 @@ public class MotherService {
     }
 
     @Transactional(readOnly = true)
+    public List<Mother> searchMothers(String search) {
+        if (search == null || search.isBlank()) {
+            return getAllMothers();
+        }
+        String query = search.trim();
+        return motherRepository
+            .findByFullNameContainingIgnoreCaseOrPhoneNumberContainingIgnoreCaseOrCountyContainingIgnoreCaseOrderByRegisteredAtDesc(
+                query, query, query);
+    }
+
+    @Transactional(readOnly = true)
     public Mother getMotherById(Long id) {
         return motherRepository.findById(id)
             .orElseThrow(() ->
